@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: #6366f1;
+    --secondary: #8b5cf6;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body{
+   font-family: sans-serif;
+   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   min-height: 100vh;
+   line-height: 1.6;
+}
+
+.dashboard{
+    display: grid;
+    grid-template-areas: 
+        "sidebar header header"
+        "sidebar main main"
+        "sidebar footer footer";
+    grid-template-columns: 280px 1fr 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    min-height: 100vh;
+    gap: 0px
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background: linear-gradient(180deg, var(--dark) 0%, #0f172a 100%);
+    color: white;
+    padding: 2rem;
+    transform: translateX(0);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--card-shadow);
+}
+
+.sidebar::before{
+   content: "";
+   position: absolute;
+   top:0;
+   left: 0;
+   right: 0;
+   bottom:0;
+   background: linear-gradient(45deg, transparent 0%, rgba(99, 102, 241, 0.1) 50%, transparent 100%);
+   transform: translateX(-100%);
+   animation: shimmer 2s infinite;
+}
+
+.sidebar-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    transition: var(--transition);
+    transform: rotate(0deg);
+}
+
+.logo:hover{
+    transform: rotate(360deg) scale(1.1);
+}
+
+.nav-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);   
+}
+
+.nav-item:hover{
+    background: rgba(99, 102, 241, 0.2);
+    transform: translateX(8px);
+}
+
+
+.nav-icon{
+    margin-right: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes shimmer{
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
