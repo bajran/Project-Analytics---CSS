@@ -112,6 +112,84 @@ body{
     margin-right: 12px;
 }
 
+.header{
+    grid-area: header;
+    background: rgba(255, 255, 255, 0.95);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding: 0 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    padding: 8px 20px;
+    min-width: 300px;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.search-container:focus-within{ 
+    transform: scale(1.02);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.search-input{
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.header-actions{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.notification-badge{
+    background: rgba(99, 102, 241, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.notification-badge:hover{
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1) rotate(10deg);
+}
+
+
+.notification-badge::after{
+    content: '3';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background: var(--error);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    animation: pulse 2s infinite;
+}
 
 
 
@@ -121,6 +199,22 @@ body{
 
 
 
+
+
+
+
+
+
+
+@keyframes pulse {
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(1.2);
+    }
+}
 
 
 @keyframes shimmer{
